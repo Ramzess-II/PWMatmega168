@@ -1,13 +1,13 @@
 #include "led.h"
 
-void indikciya (char symbol){
+void indikciya (char symbol){  // сюда попадают символы для отображения
 	
 	switch (symbol)
 	{
 		case 'H' :
-		PORTD  |= 0x01;
+		PORTD  |= 0x01;        // сначала выключаем все ножки которые идут на 7 сегментники 
 		PORTC  |= 0x3F;
-		PORTC  &= ~0x36;
+		PORTC  &= ~0x36;       // потом включаем те что нам нужны
 		PORTD  &= ~0x01;		
 		break;
 		case 'S' :
@@ -20,12 +20,12 @@ void indikciya (char symbol){
 	
 }
 
-void indikciya (int symbol){
+void indikciya (int symbol){    // перегрузка функции сюда попадают числа
 	
 	switch (symbol)
 	{
 		case 0 :
-		PORTD  |= 0x01;
+		PORTD  |= 0x01;          // все тоже самое
 		PORTC  |= 0x3F;
 		PORTC  &= ~0x3F;
 		break;
